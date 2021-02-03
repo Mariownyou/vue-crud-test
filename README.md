@@ -37,12 +37,38 @@
 Тут лежит ссылка на API и импорты axios, по желанию можно добавить все, что угодно связанное с API
 
 ### services/PostDataService.js
-Это основной сервис для общения с базой данных, все функции для работы с backendo-ом должны лежать тут.
+Это основной сервис для общения с базой данных, все функции для работы с backend-ом должны лежать тут.
 Весь функционал прописываем здесь, потом импортируем модуль и используем в компонентах, очень удобно и практично)
-**Пример:** 
+**Пример:**
 ```javascript
+import http from "@/http-common";
+
+class PostDataService {
      // забираем все посты из бд
      getAll() {
           return http.get("/posts");
      }
-````
+}
+```
+### router.js
+Прописываем все пути к страницам и компоненты которые мы на них вызываем
+**Пример**
+```javascript
+import Vue from "vue";
+import Router from "vue-router";
+
+Vue.use(Router);
+
+export default new Router({
+  mode: "history",
+  routes: [
+     {
+       path: "/",
+       alias: "/posts",
+       name: "posts",
+       component: () => import("./components/PostList")
+     },
+  ]
+})
+```
+
