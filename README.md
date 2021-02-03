@@ -1,12 +1,12 @@
 # vue-crud-test
 > Тестовое задание
 
-### Запустить 
-> npm install
-### Запускаем frontend
-> npm run serve
-### Запускаем backend
-> npm run index.js
+Запустить 
+      npm install      
+Запускаем frontend
+     npm run serve
+Запускаем backend
+     npm run index.js
 
 
 ## Архитектура приложения
