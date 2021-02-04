@@ -110,16 +110,18 @@ submit() {
 ``` 
 Дальше отслеживаем изменения переменных: `title`, `text` с помощью `v-model` и дальше функция `submit` делает с ними что нам нужно
 ```html
-<div class="field">
+<form @submit.prevent="submit">
+  <div class="field">
      <label class="label" for="title">Title</label>
      <input v-model="post.title"/> 
-</div>
+  </div>
 
-<div class="field">
+  <div class="field">
      <label class="label" for="text">Text</label>
      <input v-model="post.text"/> 
      <button>Посылаем Данные</button>
-</div>
+  </div>
+</form>
 ```
 
 ### AddPost и EditPost
