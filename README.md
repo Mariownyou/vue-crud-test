@@ -1,6 +1,10 @@
 # vue-crud-test
 > Тестовое задание
 
+Я решил использовать [Bulma](https://bulma.io) вместо Bootstrap, подключил импортом в <App.vue style 28 строчка>
+
+     @import "https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+
 ## Как запустить?
 **Устанавливаем зависимости**
 
@@ -9,10 +13,13 @@
 
      cd vue-crud-test
      npm run serve
-**Запускаем backend**
+**Запускаем backend _*Если хотите проверить функционал_**
 
-     cd backend
-     npm run index.js
+     cd api
+     pip install -r requirements.txt
+     python3 manage.py makemigartions
+     python3 manage.py migrate
+     python3 manage.py runserver
 
 
 ## Архитектура приложения
@@ -21,7 +28,10 @@
     ├── assets                 
     │   └── logo.png
     ├── components               
-    │   ├── AddPost.vue          // Форма создания нового поста
+    │   ├── AddPost.vue          // Страница создания нового поста
+    │   ├── EditPost.vue         // Страница едактирования поста
+    │   ├── Form.vue             // Форма для создания и редактирования постов
+    │   ├── Navbar.vue
     │   ├── Post.vue             // Отдельный пост
     │   └── PostList.vue         // Список постов
     ├── http-common.js           // Ссылки на API
@@ -52,7 +62,7 @@ class PostDataService {
 ```
 ### router.js
 Прописываем все пути к страницам и компоненты которые мы на них вызываем
-**Пример**
+**Пример:**
 ```javascript
 import Vue from "vue";
 import Router from "vue-router";
