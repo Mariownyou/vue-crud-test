@@ -1,32 +1,53 @@
 <template>
-  <div class='hello'>
-    <h1>{{ msg }}</h1>
-  </div>
+
+    <Form :method="savePost" :post="post" />
+
 </template>
 
 <script>
+
+import PostDataService from "../services/PostDataService";
+import Form from "./Form"
+
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  name: "add-post",
+  data() {
+    return {
+      post: {
+        id: null,
+        title: "",
+        text: "",
+      },
+      submitted: false
+    };
+  },
+  methods: {
+    savePost() {
+      var data = {
+        title: this.post.title,
+        text: this.post.text
+      };
+
+      PostDataService.create(data)
+        .then(response => {
+          this.post.id = response.data.id;
+          console.log(response.data);
+          this.submitted = true;
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+  },
+  components: {
+    Form
   }
-}
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+<style>
+.submit-form {
+  max-width: 300px;
+  margin: auto;
 }
 </style>

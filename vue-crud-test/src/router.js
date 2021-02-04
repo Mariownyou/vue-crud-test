@@ -13,9 +13,9 @@ export default new Router({
       component: () => import("./components/PostList")
     },
     {
-      path: "/post/:id",
-      name: "post-details",
-      component: () => import("./components/Post")
+      path: "/edit/:id",
+      name: "edit",
+      component: () => import("./components/EditPost")
     },
     {
       path: "/add",
