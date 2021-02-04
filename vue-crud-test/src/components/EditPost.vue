@@ -1,12 +1,16 @@
 <template>
+
   <Form :method="editPost" :post="post"/>
+
 </template>
 
 <script>
+
 import PostDataService from '../services/PostDataService'
 import Form from './Form'
 
 export default {
+    name: "edit-post",
     components: {
         Form,
     },

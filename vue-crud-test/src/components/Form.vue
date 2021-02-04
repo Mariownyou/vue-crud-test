@@ -36,7 +36,10 @@ export default {
         submit() {
             const router = this.$router
 
+            // Вызываем метод который получили из компонента
             this.method()
+
+            // Перенаправляем пользователя на главную
             router.push({
                 name: 'posts'
             })

@@ -1,4 +1,5 @@
 <template>
+
   <div class="card mt-5" v-if="post.title">
         <div class="card-content">
             <div class="media-content">
@@ -14,16 +15,18 @@
             <a @click="deletePost" class="card-footer-item">Delete</a>
         </footer>
     </div>
+
 </template>
 
 <script>
+
 import PostDataService from '../services/PostDataService'
 
 export default {
     props: ['post'],
     data() {
         return {
-            id: this.post._id ? this.post._id :  this.post.id
+            id: this.post._id ? this.post._id :  this.post.id // Mongodb использует не id, а _id. Учитываем это
         }
     },
     methods: {
@@ -32,12 +35,12 @@ export default {
                 .then(response => {
                     console.log(response)
                 })
-                .catch(e => {
+                .catch(e => { // обрабатываем ошибку
                     console.log(e)
                 })
         },
         editPost() {
-            const router = this.$router
+            const router = this.$router // редиректим на страницу редактирования
             router.push({
                 name: 'edit',
                 params: {

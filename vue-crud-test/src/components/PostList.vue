@@ -1,10 +1,13 @@
 <template>
+
     <div class="posts">
         <Post v-for="(post, index) in posts" :key="index" :post="post" />
     </div>
+    
 </template>
 
 <script>
+
 import PostDataService from '../services/PostDataService'
 import Post from './Post'
 

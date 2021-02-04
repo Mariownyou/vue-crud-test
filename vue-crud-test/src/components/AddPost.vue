@@ -1,6 +1,6 @@
 <template>
 
-    <Form :method="savePost" :post="post" />
+  <Form :method="savePost" :post="post" />
 
 </template>
 
@@ -11,6 +11,9 @@ import Form from "./Form"
 
 export default {
   name: "add-post",
+  components: {
+    Form
+  },
   data() {
     return {
       post: {
@@ -18,7 +21,6 @@ export default {
         title: "",
         text: "",
       },
-      submitted: false
     };
   },
   methods: {
@@ -30,17 +32,12 @@ export default {
 
       PostDataService.create(data)
         .then(response => {
-          this.post.id = response.data.id;
           console.log(response.data);
-          this.submitted = true;
         })
         .catch(e => {
           console.log(e);
         });
     },
-  },
-  components: {
-    Form
   }
 };
 </script>
