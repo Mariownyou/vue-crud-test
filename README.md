@@ -1,7 +1,7 @@
 # vue-crud-test
 > Тестовое задание
 
-Я решил использовать [Bulma](https://bulma.io) вместо Bootstrap, подключил импортом в <App.vue style 28 строчка>
+Я решил использовать [Bulma](https://bulma.io) вместо Bootstrap, подключил импортом в `App.vue style 28 строчка`
 
      @import "https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
 
