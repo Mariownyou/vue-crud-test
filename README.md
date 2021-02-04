@@ -6,6 +6,9 @@
      @import "https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
 
 ## Как запустить?
+**_Ссылка_** https://happy-murdock-608181.netlify.app/
+
+
 **Устанавливаем зависимости**
 
      npm install      
@@ -17,6 +20,7 @@
 
      cd api
      pip install -r requirements.txt
+
      python3 manage.py makemigartions
      python3 manage.py migrate
      python3 manage.py runserver
